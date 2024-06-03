@@ -18,10 +18,15 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'user_token' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
             'name' => fake()->name(),
+            'username' => fake()->name(),
             'email' => fake()->safeEmail(),
+            'telepon' => fake()->phoneNumber(),
+            'alamat' => fake()->address(),
+            'role' => "User",
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => bcrypt("pass.123"), // password
             'remember_token' => Str::random(10),
         ];
     }

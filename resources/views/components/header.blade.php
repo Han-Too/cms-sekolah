@@ -245,10 +245,10 @@
                 <img alt="image"
                     src="{{ asset('img/avatar/avatar-1.png') }}"
                     class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->username }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
+                <div class="dropdown-title">Last Login : {{ App\Helper\Utils::changeDate(auth()->user()->last_login) }}</div>
                 <a href="features-profile.html"
                     class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
